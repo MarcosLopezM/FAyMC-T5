@@ -118,56 +118,56 @@
 \newtheorem{exercise}{Problema}
 \counterwithin{equation}{exercise}
 
-\makeatletter
-\LetLtxMacro\old@exercise\exercise
-\renewcommand*{\exercise}{%
-  \@ifnextchar[{%
-    \exercise@opt
-  }{%
-    \old@exercise
-    \exercise@bookmark{}%
-  }%
-}
-\def\exercise@opt[#1]{%
-  \old@exercise[{#1}]%
-  \exercise@bookmark{: #1}%
-}
-\newcommand*{\exercise@bookmark}[1]{%
-  \bookmark[dest=\@currentHref]{Problema \theexercise#1}%
-}
-\makeatother
+% \makeatletter
+% \LetLtxMacro\old@exercise\exercise
+% \renewcommand*{\exercise}{%
+%   \@ifnextchar[{%
+%     \exercise@opt
+%   }{%
+%     \old@exercise
+%     \exercise@bookmark{}%
+%   }%
+% }
+% \def\exercise@opt[#1]{%
+%   \old@exercise[{#1}]%
+%   \exercise@bookmark{: #1}%
+% }
+% \newcommand*{\exercise@bookmark}[1]{%
+%   \bookmark[dest=\@currentHref]{Problema \theexercise#1}%
+% }
+% \makeatother
 
-% Configuración de ambiente para ejercicios extra
-\theoremstyle{break}
-\theoremheaderfont{\Large\normalfont\bfseries}
-\theorembodyfont{\color{blue}\normalfont}
-\theoremseparator{\bigskip} % Spacing between header and body
-\theorempreskip{1.5em}
-\theorempostskip{\topsep\bigskip}
-\theorempostwork{
-    \color{customBlue} \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize
-    }
-\newtheorem{exercisex}{Extra}
-\counterwithin{equation}{exercisex}
+% % Configuración de ambiente para ejercicios extra
+% \theoremstyle{break}
+% \theoremheaderfont{\Large\normalfont\bfseries}
+% \theorembodyfont{\color{blue}\normalfont}
+% \theoremseparator{\bigskip} % Spacing between header and body
+% \theorempreskip{1.5em}
+% \theorempostskip{\topsep\bigskip}
+% \theorempostwork{
+%     \color{customBlue} \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize
+%     }
+% \newtheorem{exercisex}{Extra}
+% \counterwithin{equation}{exercisex}
 
-\makeatletter
-\LetLtxMacro\old@exercisex\exercisex
-\renewcommand*{\exercisex}{%
-  \@ifnextchar[{%
-    \exercisex@opt
-  }{%
-    \old@exercisex
-    \exercisex@bookmark{}%
-  }%
-}
-\def\exercisex@opt[#1]{%
-  \old@exercisex[{#1}]%
-  \exercisex@bookmark{: #1}%
-}
-\newcommand*{\exercisex@bookmark}[1]{%
-  \bookmark[dest=\@currentHref]{Extra \theexercisex#1}%
-}
-\makeatother
+% \makeatletter
+% \LetLtxMacro\old@exercisex\exercisex
+% \renewcommand*{\exercisex}{%
+%   \@ifnextchar[{%
+%     \exercisex@opt
+%   }{%
+%     \old@exercisex
+%     \exercisex@bookmark{}%
+%   }%
+% }
+% \def\exercisex@opt[#1]{%
+%   \old@exercisex[{#1}]%
+%   \exercisex@bookmark{: #1}%
+% }
+% \newcommand*{\exercisex@bookmark}[1]{%
+%   \bookmark[dest=\@currentHref]{Extra \theexercisex#1}%
+% }
+% \makeatother
 
 % Configuración de ambiente para solución
 \theoremstyle{nonumberbreak}
@@ -381,6 +381,5 @@ after = \end{multicols}}
     \subfile{exercises/exercise1.tex}
 
     % Problema 2
-    \setcounter{exercisex}{1}
     \subfileinclude{exercises/exercise2.tex}
 \end{document}
