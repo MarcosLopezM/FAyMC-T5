@@ -21,6 +21,7 @@
 \usepackage{graphicx}
 \usepackage{kantlipsum}
 \usepackage{lastpage}
+\usepackage{letltxmacro}
 \usepackage{linebreaker} % line-breaker algorithm in LuaLaTeX
 \usepackage{linop}
 \usepackage{lualatex-math} % Fixes for mathematics
@@ -310,6 +311,18 @@ after = \end{multicols}}
 \newcommand*{\dotprod}[2]{#1 \mathbin{\cdot} #2\xspace}
 \newcommand*{\crossprod}[2]{#1 \mathbin{\mul} #2\xspace}
 \newcommand*{\basevect}[1]{\uvec{e}_{#1}\xspace}
+
+% Redefine square root symbol
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
 
 % \newcommand*{\change}[1]{\Delta{#1}\xspace}
 
